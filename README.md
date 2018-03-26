@@ -2,7 +2,9 @@
 
 [![Docker Stars](https://img.shields.io/docker/stars/jfloff/alscipy.svg)][hub]
 [![Docker Pulls](https://img.shields.io/docker/pulls/jfloff/alscipy.svg)][hub]
+
 [hub]: https://hub.docker.com/r/jfloff/alscipy/
+
 
 Image with common packages for doing science in [alpine-python](https://github.com/jfloff/alpine-python)!
 
