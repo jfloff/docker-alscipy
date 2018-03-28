@@ -29,13 +29,15 @@ RUN pip install --upgrade numpy \
                           ;
 
 # setup jupyter
-EXPOSE 8888
-ENV JUPYTER_PATH=/home/jupyter
+ENV JUPYTER_PATH=/home/jupyter \
+    JUPYTER_PORT=8888
+EXPOSE $JUPYTER_PORT
 RUN set -ex ;\
     jupyter notebook --generate-config --allow-root ;\
     sed -i -e "s/#c.NotebookApp.ip .*/c.NotebookApp.ip = '0.0.0.0'/g"  /root/.jupyter/jupyter_notebook_config.py ;\
     sed -i -e "s/#c.NotebookApp.port .*/c.NotebookApp.port = $JUPYTER_PORT/g"  /root/.jupyter/jupyter_notebook_config.py ;\
-    sed -i -e "s/#c.NotebookApp.allow_root .*/c.NotebookApp.allow_root = True/g"  /root/.jupyter/jupyter_notebook_config.py
+    sed -i -e "s/#c.NotebookApp.allow_root .*/c.NotebookApp.allow_root = True/g"  /root/.jupyter/jupyter_notebook_config.py ;\
+    sed -i -e "s/#c.NotebookApp.token .*/c.NotebookApp.token = u''/g"  /root/.jupyter/jupyter_notebook_config.py
 
 # for jupyter
 ENTRYPOINT ["/sbin/tini", "--"]
