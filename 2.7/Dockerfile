@@ -17,16 +17,18 @@ RUN set -ex ;\
             ;\
     rm /var/cache/apk/*
 
-RUN pip install --upgrade numpy \
-                          scipy \
-                          pandas \
-                          matplotlib \
-                          seaborn \
-                          jupyter \
-                          lxml \
-                          ;\
-    pip install --upgrade scikit-learn \
-                          ;
+RUN pip install --upgrade --no-cache-dir numpy \
+                                         scipy \
+                                         pandas \
+                                         matplotlib \
+                                         seaborn \
+                                         jupyter \
+                                         lxml \
+                                         ;\
+    pip install --upgrade --no-cache-dir scikit-learn \
+                                         ;\
+    # make sure nothing is on pip cache folder
+    rm -rf ~/.cache/pip/
 
 # setup jupyter
 ENV JUPYTER_PATH=/home/jupyter \
