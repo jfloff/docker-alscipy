@@ -2,8 +2,7 @@ FROM jfloff/alpine-python:2.7
 LABEL maintainer="jfloff@inesc-id.pt"
 
 RUN set -ex ;\
-    echo "@community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories ;\
-    echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories ;\
+    echo "@community http://dl-cdn.alpinelinux.org/alpine/v$ALPINE_VERSION/community" >> /etc/apk/repositories ;\
     apk add --update --no-cache \
             # for matplotlib
             freetype-dev \
@@ -17,7 +16,7 @@ RUN set -ex ;\
             ;\
     rm /var/cache/apk/*
 
-RUN pip install --upgrade --no-cache-dir Cython \
+RUN set -ex ;\
     pip install --upgrade --no-cache-dir numpy \
                                          scipy \
                                          pandas \
