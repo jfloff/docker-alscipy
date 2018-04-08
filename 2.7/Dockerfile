@@ -17,7 +17,8 @@ RUN set -ex ;\
             ;\
     rm /var/cache/apk/*
 
-RUN pip install --upgrade --no-cache-dir numpy \
+RUN pip install --upgrade --no-cache-dir Cython \
+    pip install --upgrade --no-cache-dir numpy \
                                          scipy \
                                          pandas \
                                          matplotlib \
