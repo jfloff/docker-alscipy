@@ -22,6 +22,8 @@ RUN set -ex ;\
                                          pandas \
                                          matplotlib \
                                          seaborn \
+                                         # needed for jupyter
+                                         pysqlite2 \
                                          jupyter \
                                          lxml \
                                          ;\
