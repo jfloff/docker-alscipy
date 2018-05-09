@@ -12,7 +12,11 @@ RUN set -ex ;\
             openblas-dev@community \
             # for lxml
             libxslt-dev \
-            py-lxml\
+            py-lxml \
+            # for jupyter
+            sqlite \
+            sqlite-dev \
+            socat \
             ;\
     rm /var/cache/apk/*
 
@@ -23,7 +27,7 @@ RUN set -ex ;\
                                          matplotlib \
                                          seaborn \
                                          # needed for jupyter
-                                         pysqlite2 \
+                                         pysqlite \
                                          jupyter \
                                          lxml \
                                          ;\
