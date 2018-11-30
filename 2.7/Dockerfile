@@ -26,6 +26,7 @@ RUN set -ex ;\
                                          pandas \
                                          matplotlib \
                                          seaborn \
+                                         adjustText \
                                          # needed for jupyter
                                          pysqlite \
                                          jupyter \

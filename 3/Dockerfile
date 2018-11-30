@@ -22,6 +22,7 @@ RUN set -ex ;\
                                          pandas \
                                          matplotlib \
                                          seaborn \
+                                         adjustText \
                                          jupyter \
                                          lxml \
                                          ;\
