@@ -17,8 +17,7 @@ RUN set -ex ;\
             sqlite \
             sqlite-dev \
             socat \
-            ;\
-    rm /var/cache/apk/*
+            ;
 
 RUN set -ex ;\
     pip install --upgrade --no-cache-dir numpy \

@@ -13,8 +13,7 @@ RUN set -ex ;\
             # for lxml
             libxslt-dev \
             py-lxml\
-            ;\
-    rm /var/cache/apk/*
+            ;
 
 RUN set -ex ;\
     pip install --upgrade --no-cache-dir numpy \
