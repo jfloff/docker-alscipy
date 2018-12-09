@@ -20,7 +20,8 @@ RUN set -ex ;\
             ;
 
 RUN set -ex ;\
-    pip install --upgrade --no-cache-dir numpy \
+    pip install --upgrade --no-cache-dir pip \
+                                         numpy \
                                          scipy \
                                          pandas \
                                          matplotlib \
