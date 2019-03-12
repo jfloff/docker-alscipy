@@ -1,4 +1,4 @@
-FROM jfloff/alpine-python:recent
+FROM jfloff/alpine-python:latest
 LABEL maintainer="jfloff@inesc-id.pt"
 
 RUN set -ex ;\
@@ -8,7 +8,7 @@ RUN set -ex ;\
             freetype-dev \
             tini@community \
             #for seaborn
-            gfortran \
+            libgfortran \
             openblas-dev@community \
             # for lxml
             libxslt-dev \
@@ -18,7 +18,8 @@ RUN set -ex ;\
 RUN set -ex ;\
     pip install --upgrade --no-cache-dir pip \
                                          numpy \
-                                         scipy \
+                                         ;\
+    pip install --upgrade --no-cache-dir scipy \
                                          pandas \
                                          matplotlib \
                                          seaborn \
