@@ -41,9 +41,12 @@ RUN set -ex ;\
     rm -rf ~/.cache/pip/
 
 # setup jupyter
-ENV JUPYTER_PATH=/home/jupyter \
+ENV PATH="~/.local/bin:${PATH}" \
+    JUPYTER_PATH=/home/jupyter \
     JUPYTER_PORT=8888
+
 EXPOSE $JUPYTER_PORT
+
 RUN set -ex ;\
     jupyter notebook --generate-config --allow-root ;\
     sed -i -e "s/#c.NotebookApp.ip .*/c.NotebookApp.ip = '0.0.0.0'/g"  /root/.jupyter/jupyter_notebook_config.py ;\
