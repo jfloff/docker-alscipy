@@ -17,6 +17,9 @@ RUN set -ex ;\
             sqlite \
             sqlite-dev \
             socat \
+            # some command line utils
+            vim \
+            curl \
             ;
 
 RUN set -ex ;\
@@ -24,8 +27,6 @@ RUN set -ex ;\
                                          numpy \
                                          ;\
     pip install --upgrade --no-cache-dir scipy \
-                                         numpy \
-                                         scipy \
                                          pandas \
                                          matplotlib \
                                          seaborn \

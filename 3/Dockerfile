@@ -12,7 +12,14 @@ RUN set -ex ;\
             openblas-dev@community \
             # for lxml
             libxslt-dev \
-            py-lxml\
+            py-lxml \
+            # for jupyter
+            sqlite \
+            sqlite-dev \
+            socat \
+            # some command line utils
+            vim \
+            curl \
             ;
 
 RUN set -ex ;\
@@ -24,6 +31,7 @@ RUN set -ex ;\
                                          matplotlib \
                                          seaborn \
                                          adjustText \
+                                         pysqlite \
                                          jupyter \
                                          lxml \
                                          ;\
