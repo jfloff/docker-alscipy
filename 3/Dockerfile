@@ -31,7 +31,7 @@ RUN set -ex ;\
                                          matplotlib \
                                          seaborn \
                                          adjustText \
-                                         pysqlite \
+                                         # pysqlite \ - using standard py3 sqlite3 module
                                          jupyter \
                                          lxml \
                                          ;\
