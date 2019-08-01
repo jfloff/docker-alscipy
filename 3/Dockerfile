@@ -34,6 +34,7 @@ RUN set -ex ;\
                                          # pysqlite \ - using standard py3 sqlite3 module
                                          jupyter \
                                          lxml \
+                                         Cython \
                                          ;\
     pip install --upgrade --no-cache-dir scikit-learn \
                                          ;\
