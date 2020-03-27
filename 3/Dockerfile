@@ -1,9 +1,11 @@
-FROM jfloff/alpine-python:latest
+FROM jfloff/alpine-python:3.8
 LABEL maintainer="jfloff@inesc-id.pt"
 
 RUN set -ex ;\
     echo "@community http://dl-cdn.alpinelinux.org/alpine/v$ALPINE_VERSION/community" >> /etc/apk/repositories ;\
     apk add --update --no-cache \
+            # for scipy
+            lapack-dev@community \
             # for matplotlib
             freetype-dev \
             tini@community \
@@ -23,21 +25,27 @@ RUN set -ex ;\
             ;
 
 RUN set -ex ;\
-    pip install --upgrade --no-cache-dir pip \
-                                         numpy \
-                                         ;\
-    pip install --upgrade --no-cache-dir scipy \
-                                         pandas \
-                                         matplotlib \
-                                         seaborn \
-                                         adjustText \
-                                         # pysqlite \ - using standard py3 sqlite3 module
-                                         jupyter \
-                                         lxml \
-                                         Cython \
-                                         ;\
-    pip install --upgrade --no-cache-dir scikit-learn \
-                                         ;\
+    pip install --upgrade --no-cache-dir \
+            pip \
+            numpy \
+            ;\
+    pip install --upgrade --no-cache-dir \
+            # Issue reported at: https://github.com/scipy/scipy/issues/11319
+            # Waiting 1.5.0 milestone at: https://github.com/scipy/scipy/milestone/44
+            # Meanwhile this is the latest working version
+            scipy==1.3.2 \
+            pandas \
+            matplotlib \
+            seaborn \
+            adjustText \
+            # pysqlite \ - using standard py3 sqlite3 module
+            jupyter \
+            lxml \
+            Cython \
+            ;\
+    pip install --upgrade --no-cache-dir \
+            scikit-learn \
+            ;\
     # make sure nothing is on pip cache folder
     rm -rf ~/.cache/pip/
 
