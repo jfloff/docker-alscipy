@@ -4,6 +4,8 @@ LABEL maintainer="jfloff@inesc-id.pt"
 RUN set -ex ;\
     echo "@community http://dl-cdn.alpinelinux.org/alpine/v$ALPINE_VERSION/community" >> /etc/apk/repositories ;\
     apk add --update --no-cache \
+            # for scipy
+            lapack-dev@community \
             # for matplotlib
             freetype-dev \
             tini@community \
@@ -23,21 +25,24 @@ RUN set -ex ;\
             ;
 
 RUN set -ex ;\
-    pip install --upgrade --no-cache-dir pip \
-                                         numpy \
-                                         ;\
-    pip install --upgrade --no-cache-dir scipy \
-                                         pandas \
-                                         matplotlib \
-                                         seaborn \
-                                         adjustText \
-                                         # needed for jupyter
-                                         pysqlite \
-                                         jupyter \
-                                         lxml \
-                                         ;\
-    pip install --upgrade --no-cache-dir scikit-learn \
-                                         ;\
+    pip install --upgrade --no-cache-dir \
+            pip \
+            numpy \
+            ;\
+    pip install --upgrade --no-cache-dir \
+            scipy \
+            pandas \
+            matplotlib \
+            seaborn \
+            adjustText \
+            # needed for jupyter
+            pysqlite \
+            jupyter \
+            lxml \
+            ;\
+    pip install --upgrade --no-cache-dir \
+            scikit-learn \
+            ;\
     # make sure nothing is on pip cache folder
     rm -rf ~/.cache/pip/
 

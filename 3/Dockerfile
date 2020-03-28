@@ -31,7 +31,7 @@ RUN set -ex ;\
             ;\
     pip install --upgrade --no-cache-dir \
             # Issue reported at: https://github.com/scipy/scipy/issues/11319
-            # Waiting 1.5.0 milestone at: https://github.com/scipy/scipy/milestone/44
+            # Waiting for 1.5.0 milestone at: https://github.com/scipy/scipy/milestone/44
             # Meanwhile this is the latest working version
             scipy==1.3.2 \
             pandas \
